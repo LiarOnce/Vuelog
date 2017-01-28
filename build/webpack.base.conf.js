@@ -74,7 +74,14 @@ module.exports = {
         loader: 'json'
       },
       {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        test: /\.(svg)(\?.*)?$/,
+        loaders: [
+          'url?limit=10000&name=' + utils.assetsPath('img/[name].[hash:7].[ext]'),
+          'svgo'
+        ]
+      },
+      {
+        test: /\.(png|jpe?g|gif)(\?.*)?$/,
         loader: 'url',
         query: {
           limit: 10000,
